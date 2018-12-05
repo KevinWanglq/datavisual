@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${module.moduleName}"></title>
+<style type="text/css">
+table.gridtable {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 1px;
+border-color: #666666;
+border-collapse: collapse;
+}
+table.gridtable th {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #dedede;
+}
+table.gridtable td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+  <h2 th:text="${module.sysid}+'-'+${module.moduleName}"></h2>
+  <a href="#" onClick="javaScript:history.go(-1)">返回上一页</a>
+  <div>
+  <table class="gridtable">
+    <tr>
+        <th>表</th>
+        <th>表名称</th>
+        <th>所属地区</th>
+        <th>详情</th>
+    </tr>
+    <tr  th:each="table:${tables}" >
+        <td th:text="${table.tableCode}"></td>
+        <td th:text="${table.tableName}"></td>
+        <td th:text="${table.district}"></td>
+        <td><a th:href="@{/collist(id=${table.pk})}">查看详情</a></td>
+    </tr>
+</table>
+    <!--   <ul>
+         <li th:each="table:${tables}">
+              <span th:text="${table.tableName}"></span>- <span  th:text="${table.tableCode}"></span>
+              <a th:href="@{/collist(id=${table.pk})}">查看详情</a>
+         </li>
+     </ul>
+     -->
+   </div>
+</body>
+</html>

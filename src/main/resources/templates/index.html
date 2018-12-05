@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>数据标准化信息</title>
+   <script>
+           function Focus() {
+               var tag =document.getElementById("ctt")
+               var val=tag.value
+               if (val=="请输入关键字"){
+                   tag.value=""
+               }
+           }
+           
+           function verify() {
+        	   var text= document.getElementById("ctt").value;
+        	   if(text==''||text==null){
+        		   alert("请输入查询内容");
+        		   return false;
+        	   }
+        	   
+           }
+           /* function Onblur() {
+               var tag =document.getElementById("ctt")
+               var val=tag.value
+               if (val==""){
+                   tag.value="请输入关键字"
+               }
+           } */
+</script>
+</head>
+<body>
+    <div align="center" style="margin:0 auto;margin-top:15%;">
+           <h2 align="center">标准化数据查询</h2>
+           <form action="/search" method="post" onsubmit="return verify()">
+           <select name="typ" style="height:36px">
+			  <option value ="all">ALL</option>
+			  <option value ="mod">模块</option>
+			  <option value="tab">表</option>
+			  <option value="col">字段</option>
+			  <option value="dict">码表</option>
+		   </select>
+           <input id="ctt" name="name" style="height:30px" onfocus="Focus()" onblur="Onblur()" type="text" value="请输入关键字" size="50" >
+           <input id="sub" style="height:36px" type="submit" value="查询">
+           </form>
+  </div>
+  <div align="center">
+  	<ul style="list-style-type:none"><!-- 去掉前面的点号 -->
+  	<li ><a href="/tablist?id=a3169a0d4c2d4eb3bdc98a93f5aafa43" >核心系统</a>
+  	    <a href="/tablist?id=024cb998f8a4488f89e1bcfa014aa128" >信贷中心</a>
+  	    <a href="/tablist?id=546b5ce7402d41daa5edb5dcd46f4526" >大总帐</a>
+  	    <a href="/tablist?id=ddc36b5475e44f42aa25dbb55a8336e2" >综合前端</a>
+  	    <a href="/tablist?id=ca44c083d8344de09541169bcac8310d" >网上银行</a>
+  	    <a href="/tablist?id=e2012e076c524929913dbec5877327c9" >管理会计</a>
+  	    <a href="/tablist?id=4c2ecdb3518542b094cfaa2d0e8d41a0" >理财系统</a>
+  	    <a href="/tablist?id=017f1280c445453a8a80adb1ed5c9e8c" >汇票系统</a>
+  	    </li>
+  	<li>
+  	    <a href="/tablist?id=0e00200640674410b37d34015df74e1f" >清算中心</a>
+  	    <a href="/tablist?id=e4bcfcd4b4014d9294e61f5f3f6620ec" >中间业务</a>
+  	    <a href="/tablist?id=204579cb871a45f68e4d739e3e60dc11" >互联网核心</a>
+  	    <a href="/tablist?id=2f66eb7840d542799bd22ae194d40c59" >互联网支付</a>
+  	    <a href="/tablist?id=551ad4f4973a4466940ee8bd4e38f944" >卡中心系统</a>
+  	    <a href="/tablist?id=34905bb0f1b14883af0463e56cf99207" >新信用卡</a>
+  	    <a href="/tablist?id=013474e03e34436b9f7fc6dbb4d631fd" >国际业务</a>
+  	    <a href="/tablist?id=0fbfebf72b66491b8b1d02bfe3dd855d" >微粒贷</a>
+  	   </li>
+  	    
+  	<li>
+  	    <a href="/tablist?id=3b22983d8aed4ca7b29253a6f29c8f9c" >微信银行</a>
+  	    <a href="/tablist?id=418f8c540ef6444f8ef5208a0f9bff9c" >支付平台</a>
+  	    <a href="/tablist?id=137a488750fa4aeabf6bd58c29d09b03" >支付宝</a>
+  	    <a href="/tablist?id=b4ddfad9abf745e6a127c628cde98270" >移动支付前置</a>
+  	    <a href="/tablist?id=aa5ca7266d744849b52f8a57ad5e600b" >电话POS</a>
+  	    <a href="/tablist?id=57a1b228df0d4f9fb1c9eab81e999219" >普惠通</a>
+  	    <a href="/tablist?id=ab90fde627a24d0ebc8fc9a356df9f5b" >增值税平台</a>
+  	    <a href="/tablist?id=ee445ec77dcb4673b418922993fd4b3f" >基金代销</a>
+  	    </li>
+  	    
+  	 <li>
+  	    <a href="/tablist?id=4347c35a91c34d6b8c4b329f31942a91" >资金业务</a>
+  	    <a href="/tablist?id=4341d94be2e641a1bf1f14660d5c0ef6" >征信系统</a>
+  	    <a href="/tablist?id=f5942b21da544a8d91c631ee6305b3b4" >同城支付</a>
+  	    <a href="/tablist?id=cecd6aca713544ffbb959efb56e17026" >农信银</a>
+  	    <a href="/tablist?id=03b59ef1579d466aa0908c9ee9025b27" >自助终端</a>
+  	    <a href="/tablist?id=7d6f871782a04e19a3fee343b7aecacf" >万德系统</a>
+  	    <a href="/tablist?id=84c3e1937e1e4ebc99d2d7ca316799e5" >电商平台</a>
+  	    <a href="/tablist?id=9f8191835be04fe5b188dfb78145be68" >丰收家</a>
+  	    </li>   
+  	              
+  	   <li>
+  	    <a href="/tablist?id=6b672a62b00d44c0b62ad0d22f16ac78" >短信平台</a>
+  	    <a href="/tablist?id=d2b6d3a118a945ee8d56d84666a3b7c0" >第三方存管</a>
+  	    <a href="/tablist?id=cdaa19602e584cbc8631e676b422f0e9" >行业应用云平台</a>
+  	    <a href="/tablist?id=726a32f00c39410da30f501c67b30e45" >数字影像平台</a>
+  	    </li>   
+  	</ul>
+  
+  </div>
+</body>
+</html>

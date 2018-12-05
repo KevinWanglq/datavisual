@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${colcode}"></title>
+<style type="text/css">
+table.imagetable {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 1px;
+border-color: #999999;
+border-collapse: collapse;
+}
+table.imagetable th {
+background:#b5cfd2 url('cell-blue.jpg');
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #999999;
+}
+table.imagetable td {
+background:#dcddc0 url('cell-grey.jpg');
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #999999;
+}
+</style>
+</head>
+<body>
+  <h2 th:text="${colcode}"></h2>
+  <a href="#" onClick="javaScript:history.go(-1)">返回上一页</a>
+  <div>
+    <table class="imagetable">
+    <tr>
+        <th>模块</th>
+        <th>表名</th>
+        <th>字段名称</th>
+        <th>码表Key</th>
+        <th>码表Value</th>
+    </tr>
+    <tr th:each="dict:${dicts}" >
+    	<td th:text="${dict.modCode}"></td>
+    	<td th:if=" ${dict.tabPk} ne null "><a th:href="@{/collist(id=${dict.tabPk})}" th:text="${dict.tabCode}"></a></td>
+        <td th:if=" ${dict.tabPk} eq null " th:text="${dict.tabCode}"></td>
+    	<td th:text="${dict.colCode}"></td>
+        <td th:text="${dict.dictKey}"></td>
+        <td th:text="${dict.dictValue}"></td>
+    </tr>
+</table>
+   </div>
+</body>
+</html>
