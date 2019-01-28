@@ -55,7 +55,7 @@ public class TableDaoImpl implements ITableDao{
 
 	@Override
 	public List<TableInfo> findTablesByName(String name) {
-		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_name like ?", new Object[]{"%"+name+"%"}, new BeanPropertyRowMapper(TableInfo.class));
+		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_name like ? order by table_code", new Object[]{"%"+name+"%"}, new BeanPropertyRowMapper(TableInfo.class));
         if(list!=null && list.size()>0){
             return list;
         }else{
@@ -65,7 +65,7 @@ public class TableDaoImpl implements ITableDao{
 
 	@Override
 	public List<TableInfo> findTablesByCode(String code) {
-		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_code like ?", new Object[]{"%"+code+"%"}, new BeanPropertyRowMapper(TableInfo.class));
+		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_code like ? order by table_code", new Object[]{"%"+code+"%"}, new BeanPropertyRowMapper(TableInfo.class));
         if(list!=null && list.size()>0){
             return list;
         }else{

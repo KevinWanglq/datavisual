@@ -64,7 +64,7 @@ window.onload=function(){
 	   }
 </script>
 <body>
-  <h2 th:text="${table.tableCode}+'-'+${table.tableName}"></h2>
+  <h2 th:text="${module}+'_'+${table.tableCode}+'--'+${table.tableName}"></h2>
    <h3 th:text="${table.district}"></h3>
    <a href="#" onClick="javaScript:history.go(-1)">返回上一页</a>
    <!-- <input type="text" />

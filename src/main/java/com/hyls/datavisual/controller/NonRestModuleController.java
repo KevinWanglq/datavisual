@@ -152,10 +152,11 @@ public class NonRestModuleController {
 	} 
 	
 	@RequestMapping(value="/collist",method = RequestMethod.GET)
-	public String listColsByTab(@RequestParam(value="id") String id,Model model) {
+	public String listColsByTab(@RequestParam(value="id") String id,@RequestParam(value="module")String module,Model model) {
 		List<ColumnInfo> columnList = columnService.findColumnByTabId(id);
 		
 		model.addAttribute("columns",columnList);
+		model.addAttribute("module",module);
 		model.addAttribute("table",tableService.findTableById(id));
 		return "column/list";
 	} 

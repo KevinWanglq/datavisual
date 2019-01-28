@@ -40,10 +40,10 @@ background-color: #ffffff;
         <th>详情</th>
     </tr>
     <tr  th:each="table:${tables}" >
-        <td th:text="${table.tableCode}"></td>
+        <td th:text="${module.sysid}+'_'+${table.tableCode}"></td>
         <td th:text="${table.tableName}"></td>
         <td th:text="${table.district}"></td>
-        <td><a th:href="@{/collist(id=${table.pk})}">查看详情</a></td>
+        <td><a th:href="@{/collist(id=${table.pk},module=${module.sysid})}">查看详情</a></td>
     </tr>
 </table>
     <!--   <ul>

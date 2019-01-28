@@ -39,13 +39,13 @@
 		<dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
-        <!-- 如果eclipse下啟動，移除掉--> 
+        <!-- 如果eclipse下啟動， 移除掉--> 
             <exclusions>
 		<exclusion>
 			<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-tomcat</artifactId>
 	</exclusion>
-	</exclusions>   
+	</exclusions>  
  </dependency>
  <!--如果是eclipse下啟動，不需要這個jar -->
    <dependency>
