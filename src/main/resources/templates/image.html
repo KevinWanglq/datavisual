@@ -39,7 +39,8 @@ border-color: #999999;
     <tr th:each="image:${images}" >
     	<td th:text="${image.name}"></td>
         <td th:text="${image.staffNo}"></td>
-        <td><a><img th:src="@{'image/'+${image.staffNo}+'_'+${image.name}+'.jpg'}" height="200px" width="250px"/></a></td>
+        <td th:if=" ${image.staffNo} ne '' "><a><img th:src="@{'image/'+${image.staffNo}+'_'+${image.name}+'.jpg'}" height="297px" width="400px"/></a></td>
+        <td th:if=" ${image.staffNo} eq '' "><a><img th:src="@{'image/'+${image.name}+'.jpg'}" height="297px" width="400px"/></a></td>
         <!-- <td><a><img th:src="@{9623356_王吕青.jpg}"/></a></td> -->
     </tr>
 </table>
