@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">  
+    <head>  
+        <title>Magic World</title>  
+        <style type="text/css">
+table.imagetable {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 1px;
+border-color: #999999;
+border-collapse: collapse;
+}
+table.imagetable th {
+background:#b5cfd2 url('cell-blue.jpg');
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #999999;
+}
+table.imagetable td {
+background:#dcddc0 url('cell-grey.jpg');
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #999999;
+}
+</style>
+    </head>  
+    <body>  
+     <div>
+    <table class="imagetable">
+    <tr>
+        <th>姓名</th>
+        <th>工号</th>
+        <th>照片</th>
+    </tr>
+    <tr th:each="image:${images}" >
+    	<td th:text="${image.name}"></td>
+        <td th:text="${image.staffNo}"></td>
+        <td><a><img th:src="@{'image/'+${image.staffNo}+'_'+${image.name}+'.jpg'}" height="200px" width="250px"/></a></td>
+        <!-- <td><a><img th:src="@{9623356_王吕青.jpg}"/></a></td> -->
+    </tr>
+</table>
+   </div>
+    </body>  
+</html>  

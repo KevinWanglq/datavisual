@@ -120,10 +120,10 @@ function SearchTable(find, tableId, callBack, isCache) {
         <th>对应模块详情</th>
     </tr>
     <tr  th:each="table:${tables}" >
-        <td th:text="${table.tableCode}"></td>
+        <td th:text="${table.sysId}+'_'+${table.tableCode}"></td>
         <td th:text="${table.tableName}"></td>
         <td th:text="${table.district}"></td>
-        <td><a th:href="@{/collist(id=${table.pk})}">查看</a></td>
+        <td><a th:href="@{/collist(id=${table.pk},module=${table.sysId})}">查看</a></td>
         <td><a th:href="@{/tablist(id=${table.sourceSyspk})}">查看</a></td>	
     </tr>
 </table>
@@ -155,7 +155,7 @@ function SearchTable(find, tableId, callBack, isCache) {
         <td th:text="${col.colPrecision}"></td>
         <td th:text="${col.primaryFlag}"></td>
         <td th:text="${col.colDecl}"></td>
-        <td><a th:href="@{/collist(id=${col.tbpk})}">查看</a></td>
+        <td><a th:href="@{/collist(id=${col.tbpk},module='')}">查看</a></td>
     </tr>
 </table>
     <!--  <ul>

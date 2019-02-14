@@ -2,6 +2,7 @@ package com.hyls.datavisual.entity;
 
 public class TableInfo {
 	private String pk;
+	private String sysId;
 	private String sourceSyspk;
 	private String tableName;
 	private String tableCode;
@@ -36,6 +37,12 @@ public class TableInfo {
 	}
 	public void setDistrict(String district) {
 		this.district = district;
+	}
+	public String getSysId() {
+		return sysId;
+	}
+	public void setSysId(String sysId) {
+		this.sysId = sysId;
 	}
 	
 }

@@ -17,7 +17,7 @@ public class TableRowMapper implements RowMapper<TableInfo>{
 		table.setTableName(rs.getString("table_name"));
 		table.setTableCode(rs.getString("table_code"));
 		table.setDistrict(rs.getString("district"));
-
+		table.setSysId(rs.getString("sysId"));
 		return table;
 	}
 

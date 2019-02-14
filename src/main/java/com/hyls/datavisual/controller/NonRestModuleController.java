@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ListModel;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hyls.datavisual.entity.ColumnInfo;
 import com.hyls.datavisual.entity.DictInfo;
+import com.hyls.datavisual.entity.ImageInfo;
 import com.hyls.datavisual.entity.SysModule;
 import com.hyls.datavisual.entity.TableInfo;
 import com.hyls.datavisual.service.IColumnService;
 import com.hyls.datavisual.service.IDictService;
+import com.hyls.datavisual.service.IImageService;
 import com.hyls.datavisual.service.IModuleService;
 import com.hyls.datavisual.service.ITableService;
 
@@ -31,12 +35,15 @@ public class NonRestModuleController {
 	IColumnService columnService;
 	@Autowired
 	IDictService dictService;
+	@Autowired
+	IImageService imageService;
 	@RequestMapping("/hello")
     public String index(Map<String,Object> map) {
 		map.put("hello","from TemplateController.helloHtml");  
 	    return "/helloHtml";  
         //return "Hello World";
     }
+	
     
 	@RequestMapping(value="/search", method=RequestMethod.POST)
 	public String search(@RequestParam(value="name") String name,@RequestParam(value="typ") String typ,Model model) {
@@ -132,6 +139,18 @@ public class NonRestModuleController {
 		 		model.addAttribute("dicts",dictResult);
 		 		model.addAttribute("colcode",name);
 		 		return "dict/list";
+		 	}else if("image".equals(typ)) {
+		 		List<ImageInfo> imageResult = new ArrayList<>();
+		 		List<ImageInfo> imageList = imageService.findImageInfoByCode(name);
+		 		List<ImageInfo> imageList2 = imageService.findImageInfoByName(name);
+		 		if(imageList!=null) {
+		 			imageResult.addAll(imageList);
+		        }
+		        if(imageList2!=null) {
+		        	imageResult.addAll(imageList2);
+		        }
+		 		model.addAttribute("images",imageResult);
+		 		return "image";
 		 	}
 	        return "search";
 	}

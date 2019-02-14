@@ -34,7 +34,7 @@ public class TableDaoImpl implements ITableDao{
 
 	@Override
 	public TableInfo findTableById(String id) {
-		return jdbcTemplate.queryForObject("select * from tb_info where pk=?",  new Object[]{id}, new TableRowMapper());
+		return jdbcTemplate.queryForObject("select t1.*,t2.sysid from tb_info t1 left join tb_sysmodule t2 on t1.source_syspk = t2.pk where t1.pk=?",  new Object[]{id}, new TableRowMapper());
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class TableDaoImpl implements ITableDao{
 
 	@Override
 	public List<TableInfo> findTablesByName(String name) {
-		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_name like ? order by table_code", new Object[]{"%"+name+"%"}, new BeanPropertyRowMapper(TableInfo.class));
+		List<TableInfo> list = jdbcTemplate.query("select t1.*,t2.sysid from tb_info t1 left join tb_sysmodule t2 on t1.source_syspk = t2.pk where t1.table_name like ? order by t1.table_code", new Object[]{"%"+name+"%"}, new BeanPropertyRowMapper(TableInfo.class));
         if(list!=null && list.size()>0){
             return list;
         }else{
@@ -65,7 +65,7 @@ public class TableDaoImpl implements ITableDao{
 
 	@Override
 	public List<TableInfo> findTablesByCode(String code) {
-		List<TableInfo> list = jdbcTemplate.query("select * from tb_info where table_code like ? order by table_code", new Object[]{"%"+code+"%"}, new BeanPropertyRowMapper(TableInfo.class));
+		List<TableInfo> list = jdbcTemplate.query("select t1.*,t2.sysid from tb_info t1 left join tb_sysmodule t2 on t1.source_syspk = t2.pk where t1.table_code like ? order by t1.table_code", new Object[]{"%"+code+"%"}, new BeanPropertyRowMapper(TableInfo.class));
         if(list!=null && list.size()>0){
             return list;
         }else{
